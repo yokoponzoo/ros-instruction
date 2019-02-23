@@ -86,3 +86,11 @@ CMake Error at /opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake:83 (find_p
   Could not find a package configuration file provided by "move_base_msgs"
   with any of the following names:
 ```
+
+## 注意事項
+普通の人は大丈夫なのですが、以下のような人はそのままじゃ動かないので気をつけましょう。
+
+* bash以外のシェルを使ってる人(zshは大丈夫そうだけどfishはよくわからん)
+* GitHubに二段階認証をつけてる人(簡単セットアップでコケるから手でいい感じにして欲しい)
+
+多分この辺の問題で引っかかる人は自分でできる人だと思うので自分で頑張りましょう。
