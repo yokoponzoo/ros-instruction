@@ -18,7 +18,7 @@ sudo rosdep init
 rosdep update
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
-printf "${G}Success to install ros!${N}\n"
+printf "${G}Success to install ros!${N}\n\n\n"
 sleep 0.5
 
 # From https://www.roboken.iit.tsukuba.ac.jp/platform/wiki/yp-spur/how-to-install
@@ -26,7 +26,8 @@ printf "  ${Y}/////////////////////////////////////////${N}\n"
 printf " ${Y}///    ${B}Start installing yp-spur...${N}    ${Y}///${N}\n"
 printf "${Y}/////////////////////////////////////////${N}\n"
 sleep 1
-git clone http://www.roboken.iit.tsukuba.ac.jp/platform/repos/yp-spur.git ~/
+sudo apt install -y git
+git clone http://www.roboken.iit.tsukuba.ac.jp/platform/repos/yp-spur.git ~/yp-spur
 cd ~/yp-spur
 git branch roboken origin/roboken
 git checkout roboken
@@ -35,7 +36,7 @@ make
 sudo make install
 cd -
 rm -rf ~/yp-spur
-printf "${G}Success to install yp-spur!${N}\n"
+printf "${G}Success to install yp-spur!${N}\n\n\n"
 
 # Install ros-related packages
 printf "  ${Y}/////////////////////////////////////////${N}\n"
@@ -43,7 +44,7 @@ printf " ${Y}///   ${B}Start installing packages...${N}    ${Y}///${N}\n"
 printf "${Y}/////////////////////////////////////////${N}\n"
 sleep 1
 sudo apt install -y ros-kinetic-move-base-msgs ros-kinetic-amcl ros-kinetic-gmapping ros-kinetic-joy ros-kinetic-move-base ros-kinetic-urg-node ros-kinetic-ypspur-ros ros-kinetic-map-server
-printf "${G}Success to install all packages!${N}\n"
+printf "${G}Success to install all packages!${N}\n\n\n"
 
 # Create a ros workspace in ~/my_workspace
 printf "  ${Y}/////////////////////////////////////////${N}\n"
@@ -58,4 +59,5 @@ cd ~/
 git clone https://github.com/morioka-lab/ros
 cp -rf ros/* ~/my_workspace/src/
 cd ~/my_workspace
-printf "${G}Success to create new project in ~/my_workspace!${N}\n"
+printf "${G}Success to create new project in ~/my_workspace!${N}\n\n\n\n"
+printf "${B}ROSのセットアップが完了しました。~/my_workspaceにワークスペースが作成されました。${N}\n\n\n\n"
