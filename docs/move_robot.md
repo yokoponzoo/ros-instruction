@@ -33,7 +33,7 @@ started core service [/rosout]
 ## ジョイスティックをつなぐ
 まずはジョイスティックを繋いでみます。roscoreが立ち上がっていることを確認して、別のターミナルを開きましょう。
 
-```
+```shell
 $ cd ~/my_workspace
 $ rosrun joy joy_node
 [ INFO] [1550892744.686574264]: Opened joystick: /dev/input/js0. deadzone_: 0.050000.
@@ -64,4 +64,25 @@ buttons: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ---
 ```
 
-こんな感じの出力が得られればひとまず完了です。
+適当にジョイスティックを動かしてこんな感じの出力が得られればひとまず完了です。
+
+# ロボットを動かす
+ジョイスティックでロボットを動かします。
+
+```
+$ croscd icart_navigation
+$ cd launch
+$ roslaunch waypoint_recorder.launch
+```
+
+これだけでロボットが動くようになるはずです。操作方法は、oが前進□が後進、スティックで左右に曲がります。
+
+## 地図の設定
+デフォルトの地図は中野キャンパス11Fになっているのですが、別の地図を使いたいときは森岡研のGitHubからダウンロードしたros/の中にある地図の設定を書き換えます。
+
+```
+$ roscd icart_navigation
+$ vim launch/map.launch
+```
+
+6行目の`<node pkg="map_server" type="map_server" name="map_server" args="/home/<USERNAME>/my_workspace/src/maps/nakano/nakano_11f.yaml" />`が地図の設定になります。ここを書き換えることにより別の場所の地図をロードできます。
