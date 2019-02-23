@@ -38,11 +38,9 @@ Creating symlink "/home/asmsuechan/my_workspace/src/CMakeLists.txt" pointing to 
 
 https://github.com/morioka-lab/ros が見えなかったら権限がありません。git/GitHub周りは聞いてください。
 
-TODO: これ場所違うかも
-
 ```
-$ cd ~/my_workspace/src
-$ git clone https://github.com/morioka-lab/ros
+$ git clone https://github.com/morioka-lab/ros ~/ros
+$ cp -rf ~/ros/* ~/my_workspace/src/
 ```
 
 ## 必要なROSパッケージをインストールする
