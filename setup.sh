@@ -58,6 +58,6 @@ catkin_init_workspace
 cd ~/
 git clone https://github.com/morioka-lab/ros
 cp -rf ros/* ~/my_workspace/src/
-cd ~/my_workspace
+echo "source ~/my_workspace/devel/setup.bash" >> ~/.bashrc
 printf "${G}Success to create new project in ~/my_workspace!${N}\n\n\n\n"
 printf "${B}ROSのセットアップが完了しました。~/my_workspaceにワークスペースが作成されました。${N}\n\n\n\n"
