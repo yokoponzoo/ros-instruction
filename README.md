@@ -6,11 +6,13 @@
 * GitHubアカウントとmorioka-labへの招待
 
 ## 簡単セットアップ
-以下のコマンドを実行しましょう。たまにパスワードとか求められるので見ておきましょう。
+必要なライブラリなどをインストールするために、以下のコマンドを実行しましょう。
 
 ```shell
 $ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/morioka-lab/ros-instruction/master/setup.sh | bash
 ```
+
+たまにパスワードとか求められるので見ておきましょう。
 
 何か失敗した場合は[セットアップ手順](/docs/instruction.md)を見て手でやってみましょう。上のスクリプトはこの資料の中に書いてあることを自動で実行します。
 
