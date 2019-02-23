@@ -70,7 +70,7 @@ buttons: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ジョイスティックでロボットを動かします。
 
 ```
-$ croscd icart_navigation
+$ roscd icart_navigation
 $ cd launch
 $ roslaunch waypoint_recorder.launch
 ```
