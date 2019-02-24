@@ -1,20 +1,21 @@
-# 1. 必要な環境のインストール
+# 環境セットアップ
+## 1. 必要な環境のインストール
 環境は`Ubuntu 16.04.05 Xenial`を想定しています。残念ながら他の環境だと動かないことが結構あります。
 
-## 1.1 ROSのインストール
+### 1.1 ROSのインストール
 ROSに関しては、下の公式ドキュメントに従えばインストールできます。インストールするのはROSのkineticという名前のバージョンです。
 
 http://wiki.ros.org/ja/kinetic/Installation/Ubuntu
 
-## 1.2 yp-spurのインストール
+### 1.2 yp-spurのインストール
 yp-spurとは筑波大学のどこかの研究室が公開している、モーターを動かすためのドライバらしいです。
 
 以下のURLにあるインストールガイドに従ってインストールしましょう。ちなみに`git clone`してくる場所はどこでもいいです。とりあえず私は`~/`で作業しました。
 
 https://www.roboken.iit.tsukuba.ac.jp/platform/wiki/yp-spur/how-to-install
 
-# 2. ROSのワークスペースをセットアップする
-## 2.1 ワークスペースの作成
+## 2. ROSのワークスペースをセットアップする
+### 2.1 ワークスペースの作成
 まずはワークスペースのディレクトリを作成します。
 
 ```
@@ -29,7 +30,7 @@ $ catkin_init_workspace
 Creating symlink "/home/asmsuechan/my_workspace/src/CMakeLists.txt" pointing to "/opt/ros/kinetic/share/catkin/cmake/toplevel.cmake"
 ```
 
-## 2.2 森岡研の独自設定をダウンロードする
+### 2.2 森岡研の独自設定をダウンロードする
 森岡研にある自律移動ロボットを動かすための設定等を以下の流れでダウンロードします。
 
 1. GitHubに登録する
@@ -43,13 +44,13 @@ $ git clone https://github.com/morioka-lab/ros ~/ros
 $ cp -rf ~/ros/* ~/my_workspace/src/
 ```
 
-## 2.3 必要なROSパッケージをインストールする
+### 2.3 必要なROSパッケージをインストールする
 
 ```
 $ sudo apt install -y ros-kinetic-move-base-msgs ros-kinetic-amcl ros-kinetic-gmapping ros-kinetic-joy ros-kinetic-move-base ros-kinetic-urg-node ros-kinetic-ypspur-ros ros-kinetic-map-server
 ```
 
-## 2.4 catkin_make
+### 2.4 catkin_make
 次にワークスペースのルートディレクトリに移動して`catkin_make`します。
 
 ```sh
@@ -75,7 +76,7 @@ Scanning dependencies of target ypspur_ros_generate_messages
 [100%] Built target ypspur_ros
 ```
 
-### (おまけ)catkin_makeで何かエラーが出た時
+#### (おまけ)catkin_makeで何かエラーが出た時
 以下のようなエラーが出た時はパッケージが足りていません。必要なパッケージを(ここでは`move_base_msgs`)をaptでインストールしましょう。
 
 ここでポイントは、`sudo apt install ros-kinetic-move-base-msgs`のように`ros-kinetic-<パッケージ名>`であることと、パッケージ名は`_`を`-`に置き換えることです。
@@ -87,7 +88,7 @@ CMake Error at /opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake:83 (find_p
   with any of the following names:
 ```
 
-## 注意事項
+### 注意事項
 普通の人は大丈夫なのですが、以下のような人はそのままじゃ動かないので気をつけましょう。
 
 * bash以外のシェルを使ってる人(zshは大丈夫そうだけどfishはよくわからん)
