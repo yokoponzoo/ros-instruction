@@ -10,7 +10,7 @@ $ roslaunch waypoint_recorder.launch
 
 これだけでロボットが動くようになるはずです。操作方法は、oが前進□が後進、スティックで左右に曲がります。
 
-### (おまけ)別の地図で動かすには
+### (おまけ) 別の地図で動かすには
 デフォルトの地図は中野キャンパス11Fになっているのですが、別の地図を使いたいときは森岡研のGitHubからダウンロードしたros/の中にある地図の設定を書き換えます。
 
 ```
@@ -20,7 +20,7 @@ $ vim launch/map.launch
 
 6行目の`<node pkg="map_server" type="map_server" name="map_server" args="/home/<USERNAME>/my_workspace/src/maps/nakano/nakano_11f.yaml" />`が地図の設定になります。ここを書き換えることにより別の場所の地図をロードできます。
 
-## 2. パラメータの設定
+## (おまけ) パラメータの設定
 ロボットを動かすにはロボットごとに適切なパラメータをセットしてやる必要があります。
 
 パラーメータのファイルは`~/my_workspace/src/ypspur_ros/params`に入っています。
@@ -38,3 +38,21 @@ icart-middle.param  otake.param  suzuki.param  yuda.param
 $ git grep suzuki.param
 ypspur_ros/launch/ypspur_ros.launch:    <arg name="param" default="$(find ypspur_ros)/params/suzuki.param"/>
 ```
+
+## (おまけ) センサーに繋げない
+以下のようなエラーが出ることがあります。
+
+```
+Device Information
+ Port    : /dev/serial/by-id/usb-T-frog_project_T-frog_Driver-if00
+Error: Can't open serial port.
+```
+
+こんな時は
+
+* USBケーブルを抜き差し
+* USBハブを取ってPCの直接挿す
+* ロボットの再起動
+* ロボットの充電をする
+
+を試してみてください。
