@@ -25,6 +25,3 @@ $ roslaunch my_utility rviz.launch
 これで以下のような画面が出てきたら成功です。
 
 ![ros-rviz](/docs/images/ros-rviz.png)
-
-## 2. ウェイポイントの設定
-TODO

@@ -19,3 +19,22 @@ $ vim launch/map.launch
 ```
 
 6行目の`<node pkg="map_server" type="map_server" name="map_server" args="/home/<USERNAME>/my_workspace/src/maps/nakano/nakano_11f.yaml" />`が地図の設定になります。ここを書き換えることにより別の場所の地図をロードできます。
+
+## 2. パラメータの設定
+ロボットを動かすにはロボットごとに適切なパラメータをセットしてやる必要があります。
+
+パラーメータのファイルは`~/my_workspace/src/ypspur_ros/params`に入っています。
+
+```shell
+$ ls ypspur_ros/params
+icart-middle.param  otake.param  suzuki.param  yuda.param
+```
+
+こんな感じでここに`<自分の名前>.param`でファイルを設定するのがよいでしょう。
+
+このパラメータファイルは`~/my_workspace/src/ypspur_ros/launch/ypspur_ros.launch`で実際に設定されています。
+
+```shell
+$ git grep suzuki.param
+ypspur_ros/launch/ypspur_ros.launch:    <arg name="param" default="$(find ypspur_ros)/params/suzuki.param"/>
+```
