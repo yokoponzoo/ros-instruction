@@ -1,12 +1,12 @@
 # ROSセットアップ
-森岡研で使用するロボットを動かすための環境をセットアップする手順書です。
+森岡研で使用するロボットを動かすための手順書です。
 
 ## 事前に必要なもの
 * Ubuntu 16.04.05 Xenial
 * GitHubアカウントとmorioka-labへの招待
 
 ## 簡単セットアップ
-必要なライブラリなどをインストールするために、以下のコマンドを実行しましょう。
+以下のコマンドを実行すれば必要なライブラリのインストール、初期ワークスペースの作成が一発で行えます(たぶん)。
 
 ```shell
 $ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/morioka-lab/ros-instruction/master/setup.sh | bash
