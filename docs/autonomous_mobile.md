@@ -45,6 +45,8 @@ $ rosrun goal_server goal_saver -f nakano_11f.csv
 
 ![ros-goal_saver](/docs/images/ros-goal_saver.png)
 
+(おまけ) ロボットを動かさなくてもrviz上でウェイポイントを保存できる仕組みを先輩が作ってくれています: [画面クリックからウェイポイントを取得する](/docs/way_points_from_rviz.md)
+
 ## 2. ウェイポイントを使った自律移動
 上で設定したウェイポイントに沿ってロボットを自律移動させてみます。
 
