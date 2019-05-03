@@ -3,9 +3,7 @@
 ジョイスティックでロボットを動かします。1で立ち上げたroscoreとrosrunはCtrl+Cで切っておきましょう。
 
 ```
-$ roscd icart_navigation
-$ cd launch
-$ roslaunch waypoint_recorder.launch
+$ roslaunch icart_navigation waypoint_recorder.launch
 ```
 
 これだけでロボットが動くようになるはずです。操作方法は、oが前進□が後進、スティックで左右に曲がります。
