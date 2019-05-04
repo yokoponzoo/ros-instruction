@@ -9,7 +9,6 @@ N='\033[0m'
 printf "  ${Y}/////////////////////////////////////////${N}\n"
 printf " ${Y}///      ${B}Start installing ros...${N}      ${Y}///${N}\n"
 printf "${Y}/////////////////////////////////////////${N}\n"
-sleep 1
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 sudo apt update
@@ -25,24 +24,30 @@ sleep 0.5
 printf "  ${Y}/////////////////////////////////////////${N}\n"
 printf " ${Y}///    ${B}Start installing yp-spur...${N}    ${Y}///${N}\n"
 printf "${Y}/////////////////////////////////////////${N}\n"
-sleep 1
 sudo apt install -y git
-git clone http://www.roboken.iit.tsukuba.ac.jp/platform/repos/yp-spur.git ~/yp-spur
-cd ~/yp-spur
-git branch roboken origin/roboken
-git checkout roboken
+git clone http://www.roboken.iit.tsukuba.ac.jp/platform/repos/yp-spur.git ~/yp-spur-tsukuba
+cd ~/yp-spur-tsukuba
 ./configure
 make
 sudo make install
 cd -
-rm -rf ~/yp-spur
+rm -rf ~/yp-spur-tsukuba
+
+cd -
+git clone https://github.com/openspur/yp-spur
+cd yp-spur
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig
 printf "${G}Success to install yp-spur!${N}\n\n\n"
 
 # Install ros-related packages
 printf "  ${Y}/////////////////////////////////////////${N}\n"
 printf " ${Y}///   ${B}Start installing packages...${N}    ${Y}///${N}\n"
 printf "${Y}/////////////////////////////////////////${N}\n"
-sleep 1
 sudo apt install -y ros-kinetic-move-base-msgs ros-kinetic-amcl ros-kinetic-gmapping ros-kinetic-joy ros-kinetic-move-base ros-kinetic-urg-node ros-kinetic-ypspur-ros ros-kinetic-map-server
 printf "${G}Success to install all packages!${N}\n\n\n"
 
@@ -50,12 +55,11 @@ printf "${G}Success to install all packages!${N}\n\n\n"
 printf "  ${Y}/////////////////////////////////////////${N}\n"
 printf " ${Y}///     ${B}Start creating project...${N}     ${Y}///${N}\n"
 printf "${Y}/////////////////////////////////////////${N}\n"
-sleep 1
 mkdir -p ~/my_workspace/src
 cd ~/my_workspace/src
 catkin_init_workspace
 
-cd ~/
+cd -
 git clone https://github.com/morioka-lab/ros
 cp -rf ros/* ~/my_workspace/src/
 sed -i -e "s/<USERNAME>/${USER}/g" ~/my_workspace/src/icart_navigation/launch/map.launch
