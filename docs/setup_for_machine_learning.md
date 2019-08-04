@@ -139,3 +139,14 @@ fabot2d.soの場所が認識されていない。fabot2d.soを`~/.pyenv/versions
 
 settings.pyのTRAINがTrueになっていないので、画面に描写しようとしてエラーになる。`export DISPLAY=":0.0``"`とか打てばできるようにはなりそうだが、そもそも画面描写は今の所使う予定がないから却下。
 ref: https://github.com/kivy/kivy/issues/3335#issuecomment-99083441
+
+### ImportError: libBox2D.so.2.3.0: cannot open shared object file: No such file or directory
+```
+$ python main.py
+Traceback (most recent call last):
+  File "main.py", line 11, in <module>
+    from environment import Fabot2D
+  File "/home/asmsuechan/src/morioka-lab/machine_learning/deep_reinforcement_learning/DDQN/scripts/environment.py", line 14, in <module>
+    from fabot2d import World, ChainObstacleDef
+ImportError: libBox2D.so.2.3.0: cannot open shared object file: No such file or directory
+```
