@@ -58,8 +58,10 @@ printf "${Y}/////////////////////////////////////////${N}\n"
 mkdir -p ~/my_workspace/src
 cd ~/my_workspace/src
 catkin_init_workspace
+cd ../
+catkin_make
 
-cd -
+cd
 git clone https://github.com/morioka-lab/ros
 cp -rf ros/* ~/my_workspace/src/
 sed -i -e "s/<USERNAME>/${USER}/g" ~/my_workspace/src/icart_navigation/launch/map.launch
